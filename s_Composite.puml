@@ -1,0 +1,37 @@
+@startuml
+
+title Компоновщик (Composite)
+
+note as INFO
+<b>Тип:</b> <u>Структурный</u>
+<b>Что это:</b>
+Компонует объекты в древовидную
+структуру, представляя их в виде
+иерархии. Позволяет клиенту оди-
+наково обращаться как к отдельному
+объекту, так и к целому поддереву.
+endnote
+
+interface Component{
+    +operation()
+    +add(in c : Composite)
+    +remove(in c : Composite)
+    +getChild(in i : int)
+}
+
+class Composite{
+    +operation()
+    +add(in c : Composite)
+    +remove(in c : Composite)
+    +getChild(in i : int)
+}
+
+class Leaf{
+    +operation()
+}
+
+Component --* Composite: дочерний элемент
+Composite --|> Component
+Leaf --|> Component
+
+@enduml

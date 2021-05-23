@@ -1,0 +1,29 @@
+@startuml
+
+title Состояние (State)
+
+note as INFO
+<b>Тип:</b> <u>Поведенческий</u>
+<b>Что это:</b>
+Позволяет объекту изменять своё
+поведение в зависимости от внутрен-
+него состояния.
+endnote
+
+class Context
+interface State{
+    +handle()
+}
+
+class ConcreteState1{
+    +handle()
+}
+class ConcreteState2{
+    +handle()
+}
+
+ConcreteState1 ..|> State
+ConcreteState2 ..|> State
+State --* Context
+
+@enduml

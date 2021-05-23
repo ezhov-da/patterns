@@ -1,0 +1,27 @@
+@startuml
+
+title Посредник (Mediator)
+
+note as INFO
+<b>Тип:</b> <u>Поведенческий</u>
+<b>Что это:</b>
+Определяет объект, инкапсулирующий
+способ взаимодействия объектов.
+Обеспечивает слабую связь, избавляя
+объекты от необходимости прямо ссыла-
+ть друг на друга и даёт возможность
+независимо изменять их взаимодействие.
+endnote
+
+interface Mediator
+class ConcreteMediator
+interface Colleague
+class ConcreteColleague
+
+Mediator <|-- ConcreteMediator
+Colleague <|-- ConcreteColleague
+
+Mediator <-- Colleague: оповещает
+ConcreteMediator --> ConcreteColleague: обновляет 
+
+@enduml

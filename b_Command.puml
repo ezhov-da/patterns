@@ -1,0 +1,34 @@
+@startuml
+
+title Команда (Command)
+
+note as INFO
+<b>Тип:</b> <u>Поведенческий</u>
+<b>Что это:</b>
+Инкапсулирует запрос в виде объекта,
+позволяя передавать их клиентам в
+качестве параметров, ставить в очередь,
+логировать а также поддерживает отме-
+ну операций.
+endnote
+
+class Client
+class Invoker
+class Receiver{
+    +action()
+}
+class ConcreteCommand{
+    +execute()
+}
+abstract class Command{
+    +execute()
+} 
+
+Client --> Invoker
+Client --> Receiver
+Client ..> ConcreteCommand
+ConcreteCommand --|> Command
+ConcreteCommand --> Receiver
+Invoker *-- Command
+
+@enduml

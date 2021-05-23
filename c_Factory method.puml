@@ -1,0 +1,31 @@
+@startuml
+
+title Фабричный метод (Factory method)
+
+note as INFO
+<b>Тип:</b> <u>Порождающий</u>
+<b>Что это:</b>
+Определяет интерфейс для
+создания объекта, но позволяет
+подклассам решать, какой класс
+инстанцировать. Позволяет
+делегировать создание объекта
+подклассам.
+endnote
+
+interface Product
+class ConcreteProduct 
+class Creator {
+    +factoryMethod()
+    +anOperation()
+}
+
+class ConcreteCreator{
+    +factoryMethod()
+}
+
+Product <|.. ConcreteProduct
+ConcreteCreator ..> ConcreteProduct
+ConcreteCreator --|> Creator
+
+@enduml

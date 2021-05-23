@@ -1,0 +1,30 @@
+@startuml
+
+title Стратегия (Strategy)
+
+note as INFO
+<b>Тип:</b> <u>Поведенческий</u>
+<b>Что это:</b>
+Определяет группу алгоритмов,
+инкапсулирует их и делает взаимо-
+заменяемыми. Позволяет изменять
+алгоритм независимо от клиентов,
+его использующих.
+endnote
+
+class Context
+interface Strategy{
+    +execute()
+}
+class ConcreteStrategyA{
+    +execute()
+}
+class ConcreteStrategyB{
+    +execute()
+}
+
+Context *-- Strategy
+Strategy <|-- ConcreteStrategyA
+Strategy <|-- ConcreteStrategyB
+
+@enduml

@@ -1,0 +1,33 @@
+@startuml
+
+title Итератор (Iterator)
+
+note as INFO
+<b>Тип:</b> <u>Поведенческий</u>
+<b>Что это:</b>
+Предоставляет способ последова-
+тельного доступа к элементам
+множества, независимо от его
+внутреннего устройства.
+endnote
+
+class Client
+interface Aggregate{
+    +createIterator(): Context
+}
+class ConcreteAggregate{
+    +createIterator() : Context
+}
+interface Iterator{
+    +next(): Context
+}
+class ConcreteIterator{
+    +next(): Context
+}
+
+Client --> Aggregate
+Client --> Iterator
+Aggregate <|.. ConcreteAggregate
+Iterator <|.. ConcreteIterator
+
+@enduml

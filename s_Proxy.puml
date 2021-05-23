@@ -1,0 +1,28 @@
+@startuml
+
+title Прокси (Proxy)
+
+note as INFO
+<b>Тип:</b> <u>Структурный</u>
+<b>Что это:</b>
+Предоставляет замену другого
+объекта для контроля доступа к
+нему.
+endnote
+
+class Client
+interface Subject{
+    +request()
+}
+class RealSubject{
+    +request()
+}
+class Proxy{
+    +request()
+}
+
+Client --> Subject
+RealSubject ..|> Subject
+Proxy ..|> Subject
+Proxy --> RealSubject: представляет
+@enduml

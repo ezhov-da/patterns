@@ -1,0 +1,29 @@
+@startuml
+
+title Адаптер (Adapter)
+
+note as INFO
+<b>Тип:</b> <u>Структурный</u>
+<b>Что это:</b>
+Конвертирует интерфейс класса в
+другой интерфейс, ожидаемый
+клиентом. Позволяет классам с
+разными интерфейсами работать вместе.
+endnote
+
+class Client
+interface Adapter{
+    +operation()
+}
+class ConcreteAdapter{
+    -adaptee
+    +operation()
+}
+class Adaptee{
+    +adaptedOperation()
+}
+
+Client --> Adapter
+ConcreteAdapter ..|> Adapter
+ConcreteAdapter --> Adaptee
+@enduml

@@ -1,0 +1,30 @@
+@startuml
+
+title Строитель (Builder)
+
+note as INFO
+<b>Тип:</b> <u>Порождающий</u>
+<b>Что это:</b>
+Разделяет создание сложного
+объекта и инициализацию его
+состояния так, что одинаковый
+процесс построения может
+создать объекты с разным состо-
+янием.
+endnote
+
+class Director{
+    +construct()
+}
+interface Builder{
+    +buildPart()
+}
+class ConcreteBuilder{
+    +buildPart()
+    +getResult()
+}
+
+Director *-- Builder
+Builder <|-- ConcreteBuilder
+
+@enduml

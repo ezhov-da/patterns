@@ -1,0 +1,34 @@
+@startuml
+
+title Декоратор (Decorator)
+
+note as INFO
+<b>Тип:</b> <u>Структурный</u>
+<b>Что это:</b>
+Динамически предоставляет объекту
+дополнительные возможности.
+Представляет собой гибкую
+альтернативу наследованию для
+расширения функциональности.
+endnote
+
+interface Component{
+    +operation()
+}
+class ConcreteComponent{
+    +operation()
+}
+class Decorator{
+    +operation()
+}
+class ConcreteDecorator{
+    -addedState
+    +operation()
+    +addedBehavior()
+}
+
+Component <|.. ConcreteComponent
+Component <|.. Decorator
+Decorator *-- Component
+ConcreteDecorator --|> Decorator
+@enduml

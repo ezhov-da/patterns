@@ -1,0 +1,36 @@
+@startuml
+
+title Интерпретатор (Interpreter)
+
+note as INFO
+<b>Тип:</b> <u>Поведенческий</u>
+<b>Что это:</b>
+Получая формальный язык, опре-
+деляет представление его грамматики
+и интерпретатор, использующий это
+представление для обработки
+выражений языка.
+endnote
+
+
+class Client
+class Context
+interface AbstractExpression{
+    +interpret(): Context
+}
+
+class TerminalExpression{
+    +interpret(): Context
+}
+
+class NonterminalExpression{
+    +interpret(): Context
+}
+
+Client --> Context
+Client --> AbstractExpression
+TerminalExpression --|> AbstractExpression
+NonterminalExpression --|> AbstractExpression
+NonterminalExpression *-- AbstractExpression 
+
+@enduml

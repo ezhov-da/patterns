@@ -1,0 +1,31 @@
+@startuml
+title Цепочка обязанностей (Chain of responsibility)
+
+note as INFO
+<b>Тип:</b> <u>Поведенческий</u>
+<b>Что это:</b>
+Избегает связывания отправителя
+запроса с его получателем, давая
+возможность обработать запрос более
+чем одному объекту. Связывает объ-
+екты-получатели и передаёт запрос по
+цепочке пока объект не обработает его.
+endnote
+
+interface Handler{
+    +handleRequest()
+}
+class ConcreteHandler1{
+    +handleRequest()
+}
+class ConcreteHandler2{
+    +handleRequest()
+}
+
+Client ()-- Handler
+
+Handler <|.. ConcreteHandler1
+Handler <|.. ConcreteHandler2
+
+Handler -->  Handler: "наследник"
+@enduml

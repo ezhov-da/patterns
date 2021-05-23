@@ -1,0 +1,36 @@
+@startuml
+
+title Приспособленец (Flyweight)
+
+note as INFO
+<b>Тип:</b> <u>Структурный</u>
+<b>Что это:</b>
+Благодаря совместному использованию,
+поддерживает эффективную работу с
+большим количеством объектов.
+endnote
+
+class Client
+class FlyweightFactory{
+    +getFlyweight(in key)
+}
+interface Flyweight{
+    +operation(in extrinsicState)
+}
+class ConcreteFlyweight{
+    -intrinsicState
+    +operation(in extrinsicState)
+}
+class UnsharedConcreteFlyweight{
+    -allState
+    +operation(in extrinsicState)
+}
+
+Client --> FlyweightFactory
+Client --> ConcreteFlyweight
+Client --> UnsharedConcreteFlyweight
+FlyweightFactory *-- Flyweight
+Flyweight <|.. ConcreteFlyweight
+Flyweight <|.. UnsharedConcreteFlyweight
+
+@enduml

@@ -1,0 +1,31 @@
+@startuml
+
+title Абстрактная фабрика (Abstract factory)
+
+note as INFO
+<b>Тип:</b> <u>Порождающий</u>
+<b>Что это:</b>
+Предоставляет интерфейс для
+создания групп связанных или
+зависимых объектов, не
+указывая их конкретный класс.
+endnote
+
+class Client
+interface AbstractFactory{
+    +createProductA(): AbstractProduct
+    +createProductB(): AbstractProduct
+}
+class ConcreteFactory{
+    +createProductA(): AbstractProduct
+    +createProductB(): AbstractProduct
+}
+interface AbstractProduct
+class ConcreteProduct
+
+Client --> AbstractFactory
+Client --> AbstractProduct
+ConcreteFactory ..|> AbstractFactory
+ConcreteProduct ..|> AbstractProduct
+
+@enduml

@@ -1,0 +1,25 @@
+@startuml
+
+title Шаблонный метод (Template method)
+
+note as INFO
+<b>Тип:</b> <u>Поведенческий</u>
+<b>Что это:</b>
+Определяет алгоритм, некоторые этапы
+которого делегируются подклассам. Поз-
+воляет подклассам переопределить эти
+этапы, не меняя структуру алгоритма.
+endnote
+
+abstract class AbstractClass{
+    +templateMethod()
+    #subMethod()
+}
+
+class ConcreteClass{
+    +subMethod()
+}
+
+AbstractClass <|-- ConcreteClass
+
+@enduml

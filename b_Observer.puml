@@ -1,0 +1,39 @@
+@startuml
+
+title Наблюдатель (Observer)
+
+note as INFO
+<b>Тип:</b> <u>Поведенческий</u>
+<b>Что это:</b>
+Определяет зависимость “один ко
+многим” между объектами так, что когда
+один объект меняет своё состояние, все
+зависимые объекты оповещаются и об-
+новляются автоматически.
+endnote
+
+interface Subject {
+    +attach(in o : Observer)
+    +detach(in o : Observer)
+    +notify()
+}
+
+interface Observer {
+    +update()
+}
+
+class ConcreteSubject {
+    -subjectState
+}
+
+class ConcreteObserver{
+    -observerState
+    +update()
+}
+
+Subject --> Observer: оповещает
+ConcreteObserver --> ConcreteSubject: наблюдает
+ConcreteSubject ..|> Subject  
+ConcreteObserver ..|> Observer
+
+@enduml

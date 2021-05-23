@@ -1,0 +1,37 @@
+@startuml
+
+title Фасад (Facade)
+
+note as INFO
+<b>Тип:</b> <u>Структурный</u>
+<b>Что это:</b>
+Предоставляет единый интерфейс к
+группе интерфейсов подсистемы.
+Определяет высокоуровневый интер-
+фейс, делая подсистему проще для
+использования.
+endnote
+
+package "Сложная система" <<Rectangle>> #DDDDDD {
+    interface Facade
+    rectangle "..." as 1{
+
+    }
+    rectangle "..." as 2{
+
+    }
+    rectangle "..." as 3{
+
+    }
+    rectangle "..." as 4{
+        
+    }
+}
+
+Input ()-- Facade
+Facade --> 1
+Facade --> 2
+Facade --> 3
+Facade --> 4
+
+@enduml

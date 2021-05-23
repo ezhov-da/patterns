@@ -1,0 +1,32 @@
+@startuml
+
+title Мост (Bridge)
+
+note as INFO
+<b>Тип:</b> <u>Структурный</u>
+<b>Что это:</b>
+Разделяет абстракцию и реализацию
+так, чтобы они могли изменяться
+независимо.
+endnote
+
+class Abstraction{
+    +operation()
+}
+
+interface Implementor{
+    +operationImpl()
+}
+
+class ConcreteImplementorA{
+    +operationImpl()
+}
+class ConcreteImplementorB{
+    +operationImpl()
+}
+
+Abstraction *-- Implementor
+Implementor <|.. ConcreteImplementorA
+Implementor <|.. ConcreteImplementorB
+
+@enduml

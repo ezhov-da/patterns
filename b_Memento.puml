@@ -1,0 +1,27 @@
+@startuml
+
+title Хранитель (Memento)
+
+note as INFO
+<b>Тип:</b> <u>Поведенческий</u>
+<b>Что это:</b>
+Не нарушая инкапсуляцию,
+определяет и сохраняет внутреннее 
+состояние объекта и позволяет позже 
+восстановить объект в этом состоянии.
+endnote
+
+class Caretaker
+class Memento{
+    -state
+}
+class Originator{
+    -state
+    +saveState(): Memento
+    +restoreState(Memento)
+}
+
+Originator ..> Memento
+Caretaker *-- Memento
+
+@enduml

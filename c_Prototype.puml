@@ -1,0 +1,30 @@
+@startuml
+
+title Прототип (Prototype)
+
+note as INFO
+<b>Тип:</b> <u>Порождающий</u>
+<b>Что это:</b>
+Определяет несколько видов
+объектов, чтобы при создании
+использовать объект-прототип и
+создаёт новые объекты, копируя
+прототип.
+endnote
+
+class Client
+interface Prototype{
+    +clone()
+}
+class ConcretePrototype1{
+    +clone()
+}
+class ConcretePrototype2{
+    +clone()
+}
+
+Client --> Prototype
+ConcretePrototype1 ..|> Prototype
+ConcretePrototype2 ..|> Prototype
+
+@enduml
